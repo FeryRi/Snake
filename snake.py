@@ -50,10 +50,25 @@ def move():
 
     clear()
 
+    rndomSnake = randrange (0,5)
+    rndomFood = randrange (0,5)
     for body in snake:
-        square(body.x, body.y, 9, 'black')
-
-    square(food.x, food.y, 9, 'green')
+            if rndomSnake != rndomFood:
+                if (rndomFood ==0) or (rndomSnake==0): 
+                    square(body.x, body.y, 9, 'black')
+                    square(food.x, food.y, 9, 'green')
+                elif (rndomFood ==1) or (rndomSnake==1): 
+                    square(body.x, body.y, 9, 'blue')
+                    square(food.x, food.y, 9, 'black')
+                elif (rndomFood ==2) or (rndomSnake==2):
+                    square(body.x, body.y, 9, 'green')
+                    square(food.x, food.y, 9, 'pink')
+                elif (rndomFood ==3) or (rndomSnake==3): 
+                    square(body.x, body.y, 9, 'pink')
+                    square(food.x, food.y, 9, 'blue')
+                else:
+                    square(body.x, body.y, 9, 'yellow')
+                    square(food.x, food.y, 9, 'orange')
     update()
     ontimer(move, 100)
 
@@ -68,3 +83,4 @@ onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
 done()
+
